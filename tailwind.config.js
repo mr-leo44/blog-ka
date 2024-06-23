@@ -70,4 +70,5 @@ export default {
         require("flowbite-typography"),
         require("flowbite/plugin"),
     ],
+    darkMode: 'media'
 };

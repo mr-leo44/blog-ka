@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,12 +18,28 @@ class Article extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'slug',
         'content',
         'cover_img',
         'is_published',
         'category_id',
         'user_id',
     ];
+    protected static function boot()
+    {
+        parent::boot();
+        static::saving(function($model){
+            if(empty($model->slug)){
+                $randomNumber = rand(100, 10000);
+                $model->slug = Str::slug($model->title). '-'. $randomNumber;
+            }
+        });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function category(): BelongsTo
     {
