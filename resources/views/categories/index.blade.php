@@ -7,7 +7,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
             @if (session('success'))
                 <div id="success-message"
                     class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
@@ -35,7 +35,14 @@
             @endif
             <div class="flex justify-end my-2">
                 <button data-modal-target="modal" data-modal-toggle="modal" type="button"
-                    class="px-4 py-2 bg-emerald-500 hover:bg-emerald-700 text-white rounded">Ajouter</button>
+                    class="px-3 py-2 bg-emerald-500 hover:bg-emerald-700 text-white rounded">
+                    <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14m-7 7V5" />
+                    </svg>
+                </button>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -71,11 +78,27 @@
                                     <td class="px-6 py-4">
                                         {{ $category->slug }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-6 py-4 flex justify-end">
                                         <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
-                                            class="font-medium bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">Editer</a>
-                                        <a href="#"
-                                            class="font-medium bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">Supprimer</a>
+                                            class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
+                                            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                                            </svg>
+                                        </a>
+                                        <a
+                                            class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
+                                            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+                                            </svg>
+
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
