@@ -26,6 +26,12 @@ class Category extends Model
                 $model->slug = Str::slug($model->name). '-'. $randomNumber;
             }
         });
+        static::updating(function($model){
+            if($model->isDirty('name')){
+                $randomNumber = rand(100, 9999999);
+                $model->slug = Str::slug($model->name). '-'. $randomNumber;
+            }
+        });
     }
 
     public function getRouteKeyName()

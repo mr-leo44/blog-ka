@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
@@ -33,13 +34,13 @@ class CategoryController extends Controller
     {
         if ($request->file('cover_img')){
             $cover = $request->file('cover_img')->store('categories/covers');
-            Category::create([
-                'name' => $request->name,
-                'cover_img' => $cover
-            ]);
-
-            return redirect()->route('categories.index')->with('success', 'La catégorie a été créée avec succès');
         }
+        Category::create([
+            'name' => $request->name, 
+            'cover_img' => $cover ?? null
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'La catégorie a été créée avec succès');
     }
 
     /**
@@ -61,9 +62,18 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
-        //
+        if ($request->hasFile('cover_img')){
+            Storage::delete($category->cover_img);
+            $cover = $request->file('cover_img')->store('categories/covers');
+        }
+
+        $category->update([
+            'name' => $request->name,
+            'cover_img' => $cover ?? $category->cover_img
+        ]);
+        return redirect()->route('categories.index')->with('success', 'La catégorie a été mise à jour avec succès');
     }
 
     /**

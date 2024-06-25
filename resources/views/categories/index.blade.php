@@ -1,3 +1,4 @@
+@props(['category' => []])
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -38,7 +39,8 @@
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-slate-700 text-center uppercase bg-emerald-200 dark:bg-gray-700 dark:text-gray-400">
+                    <thead
+                        class="text-xs text-slate-700 text-center uppercase bg-emerald-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 N°
@@ -70,7 +72,7 @@
                                         {{ $category->slug }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
+                                        <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
                                             class="font-medium bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">Editer</a>
                                         <a href="#"
                                             class="font-medium bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">Supprimer</a>
@@ -79,7 +81,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="3" class="text-center px-6 py-4">{{ __('Aucune catégorie trouvée') }}
+                                <td colspan="4" class="text-center px-6 py-4">{{ __('Aucune catégorie trouvée') }}
                                 </td>
                             </tr>
                         @endif
@@ -90,5 +92,6 @@
         </div>
     </div>
     <x-categorie-create />
-                
+    <x-categorie-edit :category="$category" />
+
 </x-app-layout>
