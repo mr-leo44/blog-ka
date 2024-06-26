@@ -81,6 +81,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Storage::delete($category->cover_img);
+        $category->delete();
+        return redirect()->route('categories.index')->with("success","suppression de la catégorie reussie");
     }
 }

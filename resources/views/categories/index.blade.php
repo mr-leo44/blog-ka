@@ -72,32 +72,32 @@
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $key + 1 }}
                                     </th>
-                                    <td class="px-6 py-4">
+                                    <td class="px-6 py-3">
                                         {{ $category->name }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-6 py-3">
                                         {{ $category->slug }}
                                     </td>
-                                    <td class="px-6 py-4 flex justify-end">
+                                    <td class="px-6 py-3 flex justify-end">
                                         <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
                                             class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
-                                            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                            <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
                                             </svg>
                                         </a>
-                                        <a
+                                        <a href="{{ route('categories.destroy', $category->slug) }}"
+                                            data-modal-target="delete-modal" data-modal-toggle="delete-modal"
+                                            onclick="supprimer(event)"
                                             class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
-                                            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24">
+                                            <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                                             </svg>
-
                                         </a>
                                     </td>
                                 </tr>
@@ -116,5 +116,6 @@
     </div>
     <x-categorie-create />
     <x-categorie-edit :category="$category" />
+    <x-delete :message="__('Voulez-vous vraiment supprimer cette catégorie ?')" />
 
 </x-app-layout>
