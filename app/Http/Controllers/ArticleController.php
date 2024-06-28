@@ -13,7 +13,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Article::with(['user', 'category'])->latest()->paginate(10);
+        return view('posts.index', compact('posts'));
     }
 
     /**
