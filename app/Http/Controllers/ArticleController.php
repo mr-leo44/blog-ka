@@ -95,6 +95,6 @@ class ArticleController extends Controller
             Storage::delete($post->cover_img);
         }
         $post->delete();
-        return redirect()->route('posts.index')->with("success","suppression de l\article reussie");
+        return redirect()->route('posts.index')->with("success","suppression de l'article reussie");
     }
 }
