@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
 // use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -48,7 +50,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $posts = Article::where('category_id', '=', $category->id)->paginate(10);
+        return view('categories.show', compact('posts', 'category')); 
     }
 
     /**
