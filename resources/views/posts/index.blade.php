@@ -1,11 +1,11 @@
 @props(['posts' => [], 'categories'])
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Articles') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             @if (session('success'))
@@ -56,16 +56,16 @@
                                 Titre
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Slug
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Catégorie
+                                Contenu
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Auteur
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Status
+                                Catégorie
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Date de publication
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Action
@@ -85,10 +85,10 @@
                                         {{ $post->title }}
                                     </td>
                                     <td class="px-6 py-3">
-                                        {{ $post->slug }}
+                                        {{ $post->category->name }}
                                     </td>
                                     <td class="px-6 py-3">
-                                        {{ $post->category->name }}
+                                        {{ $post->content }}
                                     </td>
                                     <td class="px-6 py-3">
                                         {{ $post->user->name }}
