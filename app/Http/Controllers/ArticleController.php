@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $posts = Article::with(['category', 'user'])->paginate(10);
+        $posts = Article::with(['category', 'user'])->latest()->paginate(10);
         $categories = Category::all();
         return view('posts.index', compact('categories', 'posts'));
     }
@@ -53,7 +53,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(Article $post)
     {
         //
     }
@@ -61,26 +61,27 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article)
+    public function edit(Article $post)
     {
-        //
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Article $post)
     {
         if ($request->hasFile('cover_img')){
-            Storage::delete($article->cover_img);
+            Storage::delete($post->cover_img);
             $cover = $request->file('cover_img')->store('posts/covers');
         }
 
-        $article->update([
+        $post->update([
             'title' => $request->title,
             'content' => $request->content, 
             'category_id' => $request->category_id,
-            'cover_img' => $cover ?? $article->cover_img
+            'cover_img' => $cover ?? $post->cover_img
         ]);
         return redirect()->route('posts.index')->with('success', 'L\'article a été mis à jour avec succès');
     }
@@ -88,12 +89,12 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy(Article $post)
     {
-        if ($article->cover_img){
-            Storage::delete($article->cover_img);
+        if ($post->cover_img){
+            Storage::delete($post->cover_img);
         }
-        $article->delete();
+        $post->delete();
         return redirect()->route('posts.index')->with("success","suppression de l\article reussie");
     }
 }
