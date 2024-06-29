@@ -36,14 +36,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->file('cover_img')){
+        if ($request->file('cover_img')) {
             $cover = $request->file('cover_img')->store('posts/covers');
         }
         Article::create([
-            'title' => $request->title, 
-            'content' => $request->content, 
-            'category_id' => $request->category_id, 
-            'user_id' => Auth::user()->id, 
+            'title' => $request->title,
+            'content' => $request->content,
+            'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
             'cover_img' => $cover ?? null
         ]);
 
@@ -72,14 +72,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $post)
     {
-        if ($request->hasFile('cover_img')){
+        if ($request->hasFile('cover_img')) {
             Storage::delete($post->cover_img);
             $cover = $request->file('cover_img')->store('posts/covers');
         }
 
         $post->update([
             'title' => $request->title,
-            'content' => $request->content, 
+            'content' => $request->content,
             'category_id' => $request->category_id,
             'cover_img' => $cover ?? $post->cover_img
         ]);
@@ -91,10 +91,10 @@ class ArticleController extends Controller
      */
     public function destroy(Article $post)
     {
-        if ($post->cover_img){
+        if ($post->cover_img) {
             Storage::delete($post->cover_img);
         }
         $post->delete();
-        return redirect()->route('posts.index')->with("success","suppression de l'article reussie");
+        return redirect()->route('posts.index')->with("success", "suppression de l'article reussie");
     }
 }
