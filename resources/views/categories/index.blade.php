@@ -79,7 +79,7 @@
                                         {{ $category->slug }}
                                     </td>
                                     <td class="px-6 py-3 flex justify-end">
-                                        <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
+                                        <a href="{{ route('categories.edit', $category) }}"
                                             class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -101,7 +101,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <x-categorie-edit :category="$category" />
                             @endforeach
                         @else
                             <tr>

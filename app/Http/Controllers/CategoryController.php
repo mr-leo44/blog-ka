@@ -32,11 +32,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->file('cover_img')){
+        if ($request->file('cover_img')) {
             $cover = $request->file('cover_img')->store('categories/covers');
         }
         Category::create([
-            'name' => $request->name, 
+            'name' => $request->name,
             'cover_img' => $cover ?? null
         ]);
 
@@ -56,7 +56,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -64,7 +64,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        if ($request->hasFile('cover_img')){
+        dd($category);
+        if ($request->hasFile('cover_img')) {
             Storage::delete($category->cover_img);
             $cover = $request->file('cover_img')->store('categories/covers');
         }
@@ -81,10 +82,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if ($category->cover_img){
+        if ($category->cover_img) {
             Storage::delete($category->cover_img);
         }
         $category->delete();
-        return redirect()->route('categories.index')->with("success","suppression de la catégorie reussie");
+        return redirect()->route('categories.index')->with("success", "suppression de la catégorie reussie");
     }
 }
