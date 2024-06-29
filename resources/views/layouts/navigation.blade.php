@@ -25,17 +25,16 @@
                 </li>
                 <li>
                     <a href="{{ route('categories.index')}}"
-                        class="{{ request()->routeIs('categories.index') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0  md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                        class="{{ request()->routeIs('categories.*') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0  md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                         aria-current="page">Catégories</a>
-                
                     </li>
                 <li>
                     <a href="{{ route('posts.index')}}"
-                        class="{{ request()->routeIs('posts.index') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Articles</a>
+                        class="{{ request()->routeIs('posts.*') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Articles</a>
                 </li>
                 <li>
                     <a href="{{ route('authors.index')}}"
-                        class="{{ request()->routeIs('authors.index') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0 dark:text-white md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Auteurs</a>
+                        class="{{ request()->routeIs('authors.*') ? 'text-emerald-500 dark:text-emerald-500 md:dark:text-emerald-500' : 'text-gray-900 dark:text-white md:dark:text-white' }} block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:p-0 dark:text-white md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Auteurs</a>
                 </li>
                 <li>
                     <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
