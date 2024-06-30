@@ -1,12 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl leading-tight">
             {{ $category->name }}
         </h2>
     </x-slot>
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="flex justify-end my-2">
+                    <button data-modal-target="modal" data-modal-toggle="modal" type="button"
+                        class="px-3 py-2 bg-emerald-500 hover:bg-emerald-700 text-white rounded">
+                        <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
+                </div>
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead
                         class="text-xs text-slate-700 text-center uppercase bg-emerald-200 dark:bg-gray-700 dark:text-gray-400">
@@ -105,6 +116,7 @@
             </div>
         </div>
     </div>
+    <x-post-create :categories="$categories" />
     <x-delete :message="__('Voulez-vous vraiment supprimer cet Article ?')" />
 
 </x-app-layout>

@@ -8,7 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\UpdateCategoryRequest;
+// use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -51,7 +51,8 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $posts = Article::where('category_id', '=', $category->id)->paginate(10);
-        return view('categories.show', compact('posts', 'category')); 
+        $categories = Category::all();
+        return view('categories.show', compact('posts', 'category', 'categories')); 
     }
 
     /**

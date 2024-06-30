@@ -38,7 +38,7 @@
                 </li>
                 <li>
                     <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                        class="flex items-center px-3 md:p-0 font-medium text-md py-2 pe-1 text-gray-900 rounded-full hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:me-0 focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-700 dark:text-white"
+                        class="flex items-center px-3 md:p-0 font-medium text-md py-2 pe-1 text-gray-900 rounded-full hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-700 md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:me-0 dark:text-white"
                         type="button">
                         <span class="sr-only">Open user menu</span>
                         {{-- <img class="w-8 h-8 me-2 rounded-full" src="
@@ -54,10 +54,10 @@
                     <!-- Dropdown menu -->
                     <div id="dropdownAvatarName"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
-                        <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <div class="px-4 py-3 text-md text-gray-900 dark:text-white">
                             <div class="truncate">{{ Auth::user()->email }}</div>
                         </div>
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        <ul class="py-2 text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                             <li>
                                 <x-dropdown-link :href="route('profile.edit')">
