@@ -109,7 +109,7 @@
                                                 </svg>
                                             </div>
                                         </a>
-                                        <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
+                                        <a href="{{ route('posts.edit', $post) }}"
                                             class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
