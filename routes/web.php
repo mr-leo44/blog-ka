@@ -20,6 +20,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/categories', CategoryController::class);
+    Route::get('/posts/{post}/unpublish', [ArticleController::class, 'unpublish'])->name('posts.unpublish');
+    Route::get('/posts/{post}/publish', [ArticleController::class, 'publish'])->name('posts.publish');
     Route::resource('/posts', ArticleController::class);
     Route::resource('/tags', TagController::class);
     Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');

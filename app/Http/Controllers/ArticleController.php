@@ -51,11 +51,34 @@ class ArticleController extends Controller
     }
 
     /**
+     * Publish the specified resource.
+     */
+    public function publish(Article $post)
+    {
+        $post->update([
+            'is_published' => 1
+        ]);
+
+        return back()->with('success', "L'article a été publié avec succès");
+    }
+
+    /**
+     * Unublish the specified resource.
+     */
+    public function unpublish(Article $post)
+    {
+        $post->update([
+            'is_published' => 0
+        ]);
+        return back()->with('success', "L'article a été desactivé avec succès");
+    }
+    /**
      * Display the specified resource.
      */
     public function show(Article $post)
     {
-        //
+        // dd($post);
+        return view('posts.show', compact('post'));
     }
 
     /**

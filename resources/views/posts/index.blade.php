@@ -99,7 +99,7 @@
                                     <td class="px-6 py-3 flex justify-end">
                                         <a href="{{ route('posts.show', $post) }}">
                                             <div
-                                                class="font-medium cursor-pointer bg-amber-400 hover:bg-amber-400 dark:bg-amber-400 py-2 px-3 rounded me-3 text-white dark:text-white">
+                                                class="font-medium bg-amber-400 hover:bg-amber-400 dark:bg-amber-400 py-2 px-3 rounded me-3 text-white dark:text-white">
                                                 <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                     viewBox="0 0 24 24">
@@ -110,7 +110,7 @@
                                             </div>
                                         </a>
                                         <a href="{{ route('posts.edit', $post) }}"
-                                            class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
+                                            class="font-medium bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
@@ -120,7 +120,7 @@
                                         </a>
                                         <a href="{{ route('posts.destroy', $post) }}" data-modal-target="delete-modal"
                                             data-modal-toggle="delete-modal" onclick="supprimer(event)"
-                                            class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
+                                            class="font-medium bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
