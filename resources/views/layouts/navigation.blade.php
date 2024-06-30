@@ -1,8 +1,8 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             {{-- <img src="" class="h-8" alt="Logo" /> --}}
-            <span class="self-center text-2xl font-semibold whitespace-nowrap md:dark:hover:text-emerald-500 text-emerald-700 dark:text-white">Mukasa -
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-emerald-700 md:dark:hover:text-emerald-500 text-emerald-700">Mukasa -
                 Kasima Archikin</span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
