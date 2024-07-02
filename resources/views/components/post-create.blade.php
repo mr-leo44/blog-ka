@@ -1,6 +1,6 @@
 <div id="modal" tabindex="-1" aria-hidden="true"
     class="hidden mx-auto overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center max-w-7xl md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
+    <div class="relative p-4 w-full max-w-6xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
@@ -21,7 +21,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <div class="max-h-auto mx-auto max-w-2xl">
+                <div class="max-h-auto mx-auto max-w-5xl">
                     @if ($errors->any())
                         <div class="bg-red-500 text-white px-3 py-2 rounded-lg mb-4">
                             <ul>
@@ -32,7 +32,7 @@
                         </div>
                     @endif
                     <form class="w-full" action="{{ route('posts.store') }}" method="POST"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" id="form">
                         @csrf
                         <div>
                             <label for="title"
@@ -44,9 +44,10 @@
                         <div class="mt-2">
                             <label for="content"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contenu</label>
-                            <textarea name="content" id="content" cols="100" rows="10"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="lorem ipsum" required></textarea>
+                            <input type="hidden" name="content" id="content">
+                            <div id="editor"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-b-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            </div>
                         </div>
                         <div class="mt-2">
                             <label for="cover_img"
@@ -82,3 +83,71 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video', 'formula'],
+            [{
+                'header': 1
+            }, {
+                'header': 2
+            }], // custom button values
+            [{
+                'list': 'ordered'
+            }, {
+                'list': 'bullet'
+            }],
+            [{
+                'script': 'sub'
+            }, {
+                'script': 'super'
+            }], // superscript/subscript
+            [{
+                'indent': '-1'
+            }, {
+                'indent': '+1'
+            }], // outdent/indent
+            [{
+                'direction': 'rtl'
+            }], // text direction
+
+            [{
+                'size': ['small', false, 'large', 'huge']
+            }], // custom dropdown
+            [{
+                'header': [1, 2, 3, 4, 5, 6, false]
+            }],
+
+            [{
+                'color': []
+            }, {
+                'background': []
+            }], // dropdown with defaults from theme
+            [{
+                'font': []
+            }, {
+                'size': []
+            }],
+            [{
+                'align': []
+            }],
+
+            ['clean'] // remove formatting button
+        ];
+
+        const quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        })
+        const form = document.querySelector('#form')
+        form.addEventListener('submit', function() {
+            var content = document.querySelector('#content')
+            content.value = quill.root.innerHTML
+        })
+    })
+</script>

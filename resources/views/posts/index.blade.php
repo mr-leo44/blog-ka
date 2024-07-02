@@ -85,7 +85,7 @@
                                         {{ $post->title }}
                                     </td>
                                     <td class="px-6 py-3">
-                                        {{ Str::limit($post->content, 20, '...') }}
+                                        {!! Str::limit($post->content, 20, '...') !!}
                                     </td>
                                     <td class="px-6 py-3">
                                         {{ $post->user->name }}

@@ -77,7 +77,7 @@
                             {{ $post->title }}
                         </h5>
                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                            {{ $post->content }}
+                            {!! $post->content !!}
                         </p>
                     </div>
                 </div>
