@@ -38,6 +38,9 @@
                                 Catégorie
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Statut
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Date de publication
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -66,13 +69,26 @@
                                     <td class="px-6 py-3">
                                         {{ $post->category->name }}
                                     </td>
-                                    <td class="px-6 py-3">
-                                        {{ $post->created_at->format('d-m-Y') }}
-                                    </td>
+                                    @if ($post->is_published === 1)
+                                        <td class="px-6 py-3">
+                                            {{ __('Publié') }}
+                                        </td>
+                                    @else
+                                        <td class="px-6 py-3">
+                                            {{ __('Non publié') }}
+                                        </td>
+                                    @endif
+                                    @if ($post->is_published === 1)
+                                        <td class="px-6 py-3">
+                                            {{ $post->created_at->format('d-m-Y') }}
+                                        </td>
+                                    @else
+                                        <td class="px-6 py-3"></td>
+                                    @endif
                                     <td class="px-6 py-3 flex justify-end">
                                         <a href="{{ route('posts.show', $post) }}">
                                             <div
-                                                class="font-medium cursor-pointer bg-amber-400 hover:bg-amber-400 dark:bg-amber-400 py-2 px-3 rounded me-3 text-white dark:text-white">
+                                                class="font-medium bg-amber-400 hover:bg-amber-400 dark:bg-amber-400 py-2 px-3 rounded me-3 text-white dark:text-white">
                                                 <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                     viewBox="0 0 24 24">
@@ -83,7 +99,7 @@
                                             </div>
                                         </a>
                                         <a href="{{ route('posts.edit', $post) }}"
-                                            class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
+                                            class="font-medium bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded me-3 text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
@@ -93,9 +109,10 @@
                                         </a>
                                         <a href="{{ route('posts.destroy', $post) }}" data-modal-target="delete-modal"
                                             data-modal-toggle="delete-modal" onclick="supprimer(event)"
-                                            class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
+                                            class="font-medium bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
@@ -112,7 +129,9 @@
                         @endif
                     </tbody>
                 </table>
-                {{ $posts->links() }}
+                <div class="my-2 px-auto">
+                    {{ $posts->links() }}
+                </div>
             </div>
         </div>
     </div>
