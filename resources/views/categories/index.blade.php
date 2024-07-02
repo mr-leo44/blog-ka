@@ -122,7 +122,7 @@
                         @endif
                     </tbody>
                 </table>
-                <div class="my-2 px-auto">
+                <div class="my-3 px-6">
                     {{ $categories->links() }}
                 </div>
             </div>

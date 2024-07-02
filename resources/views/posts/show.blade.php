@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-16">
+    <div class="py-14">
 
         <div class="max-w-5xl mx-auto">
             @if (session('success'))
