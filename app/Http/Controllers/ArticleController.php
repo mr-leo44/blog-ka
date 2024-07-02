@@ -77,7 +77,6 @@ class ArticleController extends Controller
      */
     public function show(Article $post)
     {
-        // dd($post);
         return view('posts.show', compact('post'));
     }
 
