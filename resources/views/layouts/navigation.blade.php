@@ -2,7 +2,7 @@
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             {{-- <img src="" class="h-8" alt="Logo" /> --}}
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-emerald-700 md:dark:hover:text-emerald-500 text-emerald-700">Mukasa -
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-emerald-500 md:dark:hover:text-emerald-600 text-emerald-700">Mukasa -
                 Kasima Archikin</span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
