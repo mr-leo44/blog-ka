@@ -6,10 +6,15 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Frontend\WelcomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
+Route::get('/{post}', [WelcomeController::class, 'getPost'])->name('getPost');
+Route::get('/categories/{category}/posts', [WelcomeController::class, 'getPostsByCategory'])->name('categoryPosts');
+Route::get('/categories/all', [WelcomeController::class, 'getCategories'])->name('getCategories');
+Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
+Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
