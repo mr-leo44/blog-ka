@@ -28,10 +28,16 @@ class Article extends Model
     protected static function boot()
     {
         parent::boot();
-        static::saving(function($model){
-            if(empty($model->slug)){
+        static::saving(function ($model) {
+            if (empty($model->slug)) {
                 $randomNumber = rand(100, 10000);
-                $model->slug = Str::slug($model->title). '-'. $randomNumber;
+                $model->slug = Str::slug($model->title) . '-' . $randomNumber;
+            }
+        });
+        static::updating(function ($model) {
+            if ($model->isDirty('title')) {
+                $randomNumber = rand(100, 9999999);
+                $model->slug = Str::slug($model->title) . '-' . $randomNumber;
             }
         });
     }
@@ -50,12 +56,12 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
-    
+
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
