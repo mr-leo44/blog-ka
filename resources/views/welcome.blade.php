@@ -3,11 +3,11 @@
         @if ($posts->count() > 0)
             @foreach ($posts as $key => $post)
                 <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    @if ($post->cover_img)
+                    {{-- @if ($post->cover_img)
                         <a href="{{ route('getPost', $post) }}">
                             <img class="rounded-t-lg" src="{{ asset("storage/$post->cover_img") }}" alt="" />
                         </a>
-                    @endif
+                    @endif --}}
                     <div class="p-5">
                         <a href="{{ route('getPost', $post) }}">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -33,6 +33,5 @@
         @else
             <p class="col-span-full text-center">Aucun post publié.</p>
         @endif
-
     </div>
 </x-frontend-layout>
