@@ -28,8 +28,18 @@
                 </div>
             @endif
             <div class="flex justify-end items-center py-4">
+                <a href="{{ route('getPost', $post) }}" title="Aller vers l'article"
+                    class="font-medium cursor-pointer bg-yellow-300 hover:bg-yellow-400 dark:bg-yellow-300 py-2 px-3 rounded mx-3 text-white dark:text-white">
+                    <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M4.998 7.78C6.729 6.345 9.198 5 12 5c2.802 0 5.27 1.345 7.002 2.78a12.713 12.713 0 0 1 2.096 2.183c.253.344.465.682.618.997.14.286.284.658.284 1.04s-.145.754-.284 1.04a6.6 6.6 0 0 1-.618.997 12.712 12.712 0 0 1-2.096 2.183C17.271 17.655 14.802 19 12 19c-2.802 0-5.27-1.345-7.002-2.78a12.712 12.712 0 0 1-2.096-2.183 6.6 6.6 0 0 1-.618-.997C2.144 12.754 2 12.382 2 12s.145-.754.284-1.04c.153-.315.365-.653.618-.997A12.714 12.714 0 0 1 4.998 7.78ZM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
                 @if ($post->is_published === 0)
-                    <a href="{{ route('posts.publish', $post) }}"
+                    <a href="{{ route('posts.publish', $post) }}" title="Publier l'article"
                         class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 py-2 px-3 rounded  text-white dark:text-white">
                         <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -38,7 +48,7 @@
                         </svg>
                     </a>
                 @else
-                    <a href="{{ route('posts.unpublish', $post) }}"
+                    <a href="{{ route('posts.unpublish', $post) }}" title="Desactiver l'article"
                         class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
                         <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -48,7 +58,7 @@
                         </svg>
                     </a>
                 @endif
-                <a href="{{ route('posts.edit', $post) }}"
+                <a href="{{ route('posts.edit', $post) }}" title="Editer l'article"
                     class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded mx-3 text-white dark:text-white">
                     <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -57,7 +67,7 @@
                     </svg>
                 </a>
                 <a href="{{ route('posts.destroy', $post) }}" data-modal-target="delete-modal"
-                    data-modal-toggle="delete-modal" onclick="supprimer(event)"
+                    data-modal-toggle="delete-modal" onclick="supprimer(event)" title="Supprimer l'article"
                     class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
                     <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
