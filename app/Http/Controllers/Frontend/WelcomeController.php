@@ -37,7 +37,6 @@ class WelcomeController extends Controller
     {
         $authors = User::latest()->paginate(10);
         return view('frontend.authors', compact('authors'));
-
     }
     public function getPostsByAuthor(User $user)
     {

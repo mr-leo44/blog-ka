@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="px-5">
+            <div class="px-5 text-white">
                 <p class="my-8">
                     {!! $post->content !!}
                 </p>

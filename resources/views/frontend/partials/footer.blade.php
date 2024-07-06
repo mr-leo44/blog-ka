@@ -4,7 +4,7 @@
             <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 {{-- <img src="" class="h-8" alt="Logo" /> --}}
                 <span
-                    class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white dark:hover:text-emerald-500 hover:text-emerald-600 text-emerald-500">Mukasa-Kasima
+                    class="self-center text-xl font-semibold whitespace-nowrap dark:text-emerald-500 dark:hover:text-emerald-500 hover:text-emerald-600 text-emerald-600">Mukasa-Kasima
                     Archikin</span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">

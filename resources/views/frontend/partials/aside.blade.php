@@ -58,8 +58,8 @@
     </div>
     <hr class="w-full h-1 mx-auto bg-gray-100 border-0 rounded dark:bg-gray-700">
     <div class="w-full p-4 my-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">A propos de ce site</h5>
-        <p class="mb-3 font-normal text-justify text-gray-700 dark:text-gray-400">
+        <h5 class="mb-2 text-2xl font-medium tracking-tight text-gray-900 dark:text-white">A propos de ce site</h5>
+        <p class="mb-3 font-normal text-sm text-justify text-gray-700 dark:text-gray-400">
             Cette plateforme web est conçu dans le but d'atteindre trous les corps KA de l'archidiocèse de Kinshasa,
             publier des articles autour de la doctrine des KA et ceux des activités liées à cette commission</p>
     </div>
