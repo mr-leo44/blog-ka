@@ -1,8 +1,8 @@
 <x-frontend-layout>
-    @php
+    {{-- @php
         \Carbon\Carbon::setLocale('fr');
-    @endphp
-    <div class="grid grid-cols-1 gap-2 px-3 lg:grid-cols-3">
+    @endphp --}}
+    <div class="grid grid-cols-1 gap-1 px-3 lg:grid-cols-3">
         @if ($posts->count() > 0)
             @foreach ($posts as $key => $post)
                 <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -13,7 +13,7 @@
                     @endif --}}
                     <div class="p-5">
                         <a href="{{ route('getPost', $post) }}">
-                            <h5 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
+                            <h5 class="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
                                 {{ $post->title }}</h5>
                         </a>
                         <p class="font-normal text-gray-700 dark:text-gray-400 italic">
