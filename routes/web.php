@@ -9,11 +9,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Frontend\WelcomeController;
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
-Route::get('/{post}', [WelcomeController::class, 'getPost'])->name('getPost');
-Route::get('/categories/{category}/posts', [WelcomeController::class, 'getPostsByCategory'])->name('categoryPosts');
-Route::get('/categories/all', [WelcomeController::class, 'getCategories'])->name('getCategories');
-Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
-Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
 
 
 Route::get('/dashboard', function () {
@@ -24,13 +19,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('/categories', CategoryController::class);
-    Route::get('/posts/{post}/unpublish', [ArticleController::class, 'unpublish'])->name('posts.unpublish');
-    Route::get('/posts/{post}/publish', [ArticleController::class, 'publish'])->name('posts.publish');
-    Route::resource('/posts', ArticleController::class);
-    Route::resource('/tags', TagController::class);
-    Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
 });
+
+Route::get('/categories/all', [WelcomeController::class, 'getCategories'])->name('getCategories');
+Route::resource('/categories', CategoryController::class)->middleware(['auth', 'verified']);
+Route::get('/categories/{category}/posts', [WelcomeController::class, 'getPostsByCategory'])->name('categoryPosts');
+
+Route::resource('/posts', ArticleController::class)->middleware(['auth', 'verified']);
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/posts/{post}/publish', [ArticleController::class, 'publish'])->name('posts.publish');
+    Route::get('/posts/{post}/unpublish', [ArticleController::class, 'unpublish'])->name('posts.unpublish');
+});
+Route::get('/posts/{post}/show', [WelcomeController::class, 'getPost'])->name('getPost');
+
+Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
+Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index')->middleware(['auth', 'verified']);
+Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
+
+Route::resource('/tags', TagController::class)->middleware(['auth', 'verified']);
 
 
 require __DIR__ . '/auth.php';
