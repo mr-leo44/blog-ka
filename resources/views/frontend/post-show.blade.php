@@ -14,16 +14,21 @@
             <div class="px-5">
                 <div>
                     <a href="{{ route('getPost', $post) }}">
-                        <h5 class="mb-2 text-4xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <h5 class="mb-2 text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $post->title }}</h5>
                     </a>
                 </div>
+                <p class="font-normal lg:text-lg text-gray-700 dark:text-gray-400 italic">
+                    <a href="{{ route('categoryPosts', $post->category) }}" class="hover:text-emerald-500">
+                        {{ $post->category->name }}
+                    </a>
+                </p>
                 <div class="flex justify-between gap-1 items-center mt-auto">
                     <div>
                         <div class="flex justify-between gap-1 items-center">
                             <div>
                                 <a href="{{ route('authorPosts', $post->user) }}"
-                                    class="flex items-center text-sm font-bold text-gray-900 dark:text-emerald-500">
+                                    class="flex items-center text-sm text-gray-900 dark:text-emerald-500">
                                     <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                         <path fill-rule="evenodd"
@@ -33,7 +38,7 @@
                                     <span class="flex-1 ms-3 whitespace-nowrap">{{ $post->user->name }}</span>
                                 </a>
                             </div>
-                            <div class="flex items-center p-3 text-sm font-bold text-gray-900 dark:text-emerald-500">
+                            <div class="flex items-center p-3 text-sm text-gray-900 dark:text-emerald-500">
                                 <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd"
@@ -48,11 +53,6 @@
                 </div>
             </div>
             <div class="px-5">
-                <p class="font-normal lg:text-xl text-gray-700 dark:text-gray-400 italic">
-                    <a href="{{ route('categoryPosts', $post->category) }}" class="hover:text-emerald-500">
-                        {{ $post->category->name }}
-                    </a>
-                </p>
                 <p class="my-8">
                     {!! $post->content !!}
                 </p>
