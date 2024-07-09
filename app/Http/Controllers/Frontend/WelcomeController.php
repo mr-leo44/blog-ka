@@ -18,7 +18,8 @@ class WelcomeController extends Controller
 
     public function getPost(Article $post)
     {
-        return view('frontend.post-show', compact('post'));
+        $recent_posts = Article::where('is_published', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        return view('frontend.post-show', compact('post', 'recent_posts'));
     }
 
     public function getCategories()

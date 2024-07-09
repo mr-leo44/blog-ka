@@ -67,7 +67,6 @@ export default {
     },
     plugins: [
         forms,
-        require("flowbite-typography"),
         require("flowbite/plugin"),
     ],
     darkMode: 'media'
