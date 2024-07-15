@@ -12,12 +12,12 @@
 
 <body class="font-sans antialiased dark:bg-slate-800 dark:text-white/50">
     @include('frontend.partials.navigation')
-    <div class="py-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-20 md:py-24 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
             <div class="col-span-3">
                 {{ $slot }}
             </div>
-            @include('frontend.partials.aside')    
+            @include('frontend.partials.aside')
         </div>
     </div>
     @include('frontend.partials.footer')
