@@ -5,7 +5,7 @@
     <div class="px-5">
         <div class="mb-4">
             <a href="{{ route('categoryPosts', $post->category) }}"
-                class="font-medium rounded-sm bg-emerald-500 py-2 px-3 lg:text-sm text-white dark:text-white">
+                class="font-medium rounded-sm bg-emerald-700 py-2 px-3 lg:text-sm text-white dark:text-white">
                 {{ $post->category->name }}
             </a>
         </div>
@@ -23,8 +23,8 @@
                     class="mb-2 text-xl md:text-2xl lg:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                     {{ $post->title }}</h5>
             </a>
-            <div class="flex items-center text-xs text-gray-900 dark:text-emerald-500">
-                <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
+            <div class="flex items-center text-xs text-gray-900 dark:text-emerald-700">
+                <svg class="h-4 text-gray-800 dark:text-emerald-700" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                         d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
@@ -45,7 +45,7 @@
 
         <div class="my-10">
             <h5 class="mb-2 border-b-2"><span
-                    class="text-sm font-medium tracking-tight text-gray-900 text-white bg-emerald-500 px-2 py-1">Voir
+                    class="text-sm font-medium tracking-tight text-gray-900 text-white bg-emerald-700 px-2 py-1">Voir
                     aussi</span></h5>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-2 my-5">
                 @if ($recent_posts->count() > 0)
@@ -72,8 +72,8 @@
                                 </a>
                                 <div class="flex justify-between gap-1 items-center mt-auto">
                                     <a href="{{ route('authorPosts', $post->user) }}"
-                                        class="flex items-center text-sm font-normal text-gray-900 dark:text-emerald-500">
-                                        <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
+                                        class="flex items-center text-sm font-normal text-gray-900 dark:text-emerald-700">
+                                        <svg class="h-4 text-gray-800 dark:text-emerald-700" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd"
                                                 d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
