@@ -18,7 +18,7 @@ class WelcomeController extends Controller
 
     public function getPost(Article $post)
     {
-        $recent_posts = Article::where('is_published', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        $recent_posts = Article::where('is_published', 1)->where('id', '!=', $post->id)->orderBy('created_at', 'desc')->take(3)->get();
         return view('frontend.post-show', compact('post', 'recent_posts'));
     }
 
@@ -39,7 +39,7 @@ class WelcomeController extends Controller
         $authors = User::latest()->paginate(10);
         return view('frontend.authors', compact('authors'));
     }
-    
+
     public function getPostsByAuthor(User $user)
     {
         $posts = Article::where('user_id', $user->id)->latest()->paginate(10);
