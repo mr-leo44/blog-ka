@@ -1,4 +1,4 @@
-<div class="mx-0 md:mx-2 my-8 md:my-0">
+<div class="mx-3 px-2 my-8 md:my-0">
     <div>
         <h5 class="mb-2 border-b-2"><span class="text-xs md:text-sm font-medium tracking-tight text-gray-900 text-white bg-emerald-500 px-2 py-1">Catégories</span></h5>
         <ul class="max-w-md ms-2 space-y-2 text-gray-500 list-disc list-inside dark:text-gray-400">
