@@ -31,7 +31,7 @@ class WelcomeController extends Controller
     public function getPostsByCategory(Category $category)
     {
         $posts = Article::where('category_id', $category->id)->paginate(10);
-        return view('frontend.category-posts', compact('posts'));
+        return view('frontend.category-posts', compact('posts', 'category'));
 
     }
     public function getAuthors()
