@@ -1,15 +1,15 @@
 <x-frontend-layout>
-    <div class="grid grid-cols-1 gap-3 px-3 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-3 px-3 md:grid-cols-3">
         @if ($authors->count() > 0)
             @foreach ($authors as $key => $user)
-                <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="bg-gray-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-5">
                         <a href="{{ route('authorPosts', $user) }}">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <h5 class="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
                                 {{ $user->name }}</h5>
                         </a>
                         <a href="{{ route('authorPosts', $user) }}"
-                            class="inline-flex items-center my-2 px-3 py-2 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
+                            class="inline-flex items-center my-2 px-3 py-2 text-xs font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:bg-emerald-500 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
                             Voir ses articles
                             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
