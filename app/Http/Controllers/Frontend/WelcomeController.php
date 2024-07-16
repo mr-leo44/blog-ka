@@ -42,6 +42,6 @@ class WelcomeController extends Controller
     public function getPostsByAuthor(User $user)
     {
         $posts = Article::where('user_id', $user->id)->paginate(10);
-        return view('frontend.author-posts', compact('posts'));
+        return view('frontend.author-posts', compact('posts', 'user'));
     }
 }
