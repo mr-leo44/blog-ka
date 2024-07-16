@@ -50,52 +50,41 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-2 my-5">
                 @if ($recent_posts->count() > 0)
                     @foreach ($recent_posts as $recent)
-                    {{--
                         <div
-                            class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div class="relative">
+                            class="bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 inline-flex md:flex-col justify-between items-center">
+                            <div>
                                 @if ($recent->cover_img)
                                     <a href="{{ route('getPost', $recent) }}">
-                                        <img class="object-cover h-auto max-w-full"
+                                        <img class="object-cover h-[5rem] md:h-auto max-w-full"
                                             src="{{ asset("storage/$recent->cover_img") }}" alt="" />
                                     </a>
                                 @else
                                     <a href="{{ route('getPost', $recent) }}">
                                         <img src="{{ asset('images/cover.jpg') }}" alt="Image par defaut"
-                                            class="object-cover h-auto max-w-full">
+                                            class="object-cover h-[5rem] md:h-auto max-w-full">
                                     </a>
                                 @endif
-                                <a href="{{ route('categoryPosts', $recent->category) }}!">
-                                    <div
-                                        class="absolute bottom-0 left-0 px-3 py-2 font-normal text-xs text-white bg-emerald-500 hover:bg-emerald-600 transition ease-in-out">
-                                        {{ $recent->category->name }}</div>
-                                </a>
                             </div>
-                            <div class="p-3">
+                            <div class="w-full px-3">
                                 <a href="{{ route('getPost', $recent) }}">
-                                    <h5 class="text-md font-medium tracking-tight text-gray-900 dark:text-white">
+                                    <h5 class="text-sm font-medium tracking-tight text-gray-900 dark:text-white">
                                         {{ $recent->title }}</h5>
                                 </a>
                                 <div class="flex justify-between gap-1 items-center mt-auto">
-                                    <div>
-                                        <div>
-                                            <a href="{{ route('authorPosts', $recent->user) }}"
-                                                class="flex items-center text-sm font-normal text-gray-900 dark:text-emerald-500">
-                                                <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                    viewBox="0 0 24 24">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                                <span
-                                                    class="flex-1 ms-1 text-xs whitespace-nowrap">{{ $recent->user->name }}</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <a href="{{ route('authorPosts', $post->user) }}"
+                                        class="flex items-center text-sm font-normal text-gray-900 dark:text-emerald-500">
+                                        <svg class="h-4 text-gray-800 dark:text-emerald-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd"
+                                                d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span
+                                            class="flex-1 ms-1 text-xs whitespace-nowrap">{{ $post->user->name }}</span>
+                                    </a>
                                     <a href="{{ route('getPost', $recent) }}"
-                                        class="inline-flex items-center my-2 px-3 py-1 text-sm font-medium text-center text-white bg-emerald-700 rounded-md hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
-                                        <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
+                                        class="inline-flex items-center my-2 px-2 py-1 text-sm font-medium text-center text-white bg-emerald-700 rounded-md hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
+                                        <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd"
                                                 d="M4.998 7.78C6.729 6.345 9.198 5 12 5c2.802 0 5.27 1.345 7.002 2.78a12.713 12.713 0 0 1 2.096 2.183c.253.344.465.682.618.997.14.286.284.658.284 1.04s-.145.754-.284 1.04a6.6 6.6 0 0 1-.618.997 12.712 12.712 0 0 1-2.096 2.183C17.271 17.655 14.802 19 12 19c-2.802 0-5.27-1.345-7.002-2.78a12.712 12.712 0 0 1-2.096-2.183 6.6 6.6 0 0 1-.618-.997C2.144 12.754 2 12.382 2 12s.145-.754.284-1.04c.153-.315.365-.653.618-.997A12.714 12.714 0 0 1 4.998 7.78ZM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
@@ -105,7 +94,6 @@
                                 </div>
                             </div>
                         </div>
-                            --}}
                     @endforeach
                 @endif
             </div>
