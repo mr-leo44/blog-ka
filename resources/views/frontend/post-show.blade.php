@@ -11,10 +11,8 @@
         </div>
         @if ($post->cover_img)
             <div class="my-3 max-h-[20rem]">
-                <a href="{{ route('getPost', $post) }}">
-                    <img class="object-cover w-full md:h-[20rem] max-w-full h-auto"
-                        src="{{ asset("storage/$post->cover_img") }}" alt="" />
-                </a>
+                <img class="object-cover w-full md:h-[20rem] max-w-full h-auto"
+                    src="{{ asset("storage/$post->cover_img") }}" alt="" />
             </div>
         @endif
         <div class="mt-4">
