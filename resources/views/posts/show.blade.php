@@ -40,7 +40,7 @@
                 </a>
                 @if ($post->is_published === 0)
                     <a href="{{ route('posts.publish', $post) }}" title="Publier l'article"
-                        class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 py-2 px-3 rounded  text-white dark:text-white">
+                        class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 py-2 px-3 rounded text-white dark:text-white">
                         <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -50,7 +50,7 @@
                 @else
                     <a href="{{ route('posts.unpublish', $post) }}" title="Desactiver l'article"
                         class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
-                        <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
+                        <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
@@ -94,5 +94,7 @@
             </div>
         </div>
     </div>
+
+    <x-delete :message="__('Voulez-vous vraiment supprimer cet Article ?')" />
 
 </x-app-layout>

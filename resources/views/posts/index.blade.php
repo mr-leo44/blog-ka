@@ -145,7 +145,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" class="text-center px-6 py-4">{{ __('Aucun post trouvé') }}
+                                <td colspan="7" class="text-center px-6 py-4">{{ __('Vous n\'avez publié aucun post') }}
                                 </td>
                             </tr>
                         @endif

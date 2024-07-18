@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $posts = Article::with(['category', 'user'])->latest()->paginate(10);
+        $posts = Article::with(['category', 'user'])->where('user_id', Auth::user()->id)->latest()->paginate(5);
         $categories = Category::all();
         return view('posts.index', compact('categories', 'posts'));
     }
@@ -47,7 +47,7 @@ class ArticleController extends Controller
             'cover_img' => $cover ?? null
         ]);
 
-        return redirect()->route('posts.index')->with('success', 'La catégorie a été créée avec succès');
+        return redirect()->route('posts.index')->with('success', 'Le post a été créé avec succès');
     }
 
     /**
@@ -94,6 +94,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $post)
     {
+        dd($request->all);
         if ($request->hasFile('cover_img')) {
             Storage::delete($post->cover_img);
             $cover = $request->file('cover_img')->store('posts/covers');
