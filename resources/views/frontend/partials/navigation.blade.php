@@ -6,8 +6,8 @@
                 class="self-center text-md md:text-xl font-semibold md:font-semibold whitespace-nowrap text-white dark:hover:text-emerald-400">Mukasa-Kasima
                 Archikin</span>
         </a>
-        <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="tel:+243899939371" class="text-xs md:text-sm text-white hover:underline">(+243)
+        <div class="flex items-center justify-center space-x-6 rtl:space-x-reverse">
+            <a href="tel:+243899939371" class="hidden md:block text-xs md:text-sm text-white hover:underline">(+243)
                 899-939-371</a>
             @if (Auth::user())
                 <a href="{{route('dashboard') }}" class="text-sm text-gray-900 dark:text-white hover:underline">Dashboard</a>
