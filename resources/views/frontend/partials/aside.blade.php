@@ -58,7 +58,7 @@
     <div class="my-4">
         <h5 class="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">A propos de ce site</h5>
         <p class="mb-3 font-normal text-sm lg:text-md text-justify text-gray-700 dark:text-gray-400">
-            Cette plateforme web est conçu dans le but d'atteindre trous les corps KA de l'archidiocèse de Kinshasa,
-            publier des articles autour de la doctrine des KA et ceux des activités liées à cette commission</p>
+            Cette plateforme web est conçue dans le but d'atteindre tous les corps KA de l'archidiocèse de Kinshasa (Archikin),
+            publier des articles autour de la doctrine des KA et ceux des activités liées à cette Commission</p>
     </div>
 </div>
