@@ -10,8 +10,8 @@
             </a>
         </div>
         @if ($post->cover_img)
-            <div class="my-3 max-h-[20rem]">
-                <img class="object-cover w-full md:h-[20rem] max-w-full h-auto"
+            <div class="my-3 max-h-[28rem]">
+                <img class="object-cover w-full md:h-[28rem] max-w-full h-auto"
                     src="{{ asset("storage/$post->cover_img") }}" alt="" />
             </div>
         @endif
