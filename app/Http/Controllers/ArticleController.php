@@ -83,7 +83,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $post)
+        public function edit(Article $post)
     {
         $categories = Category::all();
         return view('posts.edit', compact('post', 'categories'));
@@ -94,9 +94,10 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $post)
     {
-        dd($request->all);
         if ($request->hasFile('cover_img')) {
-            Storage::delete($post->cover_img);
+            if ($post->cover_img) {
+                Storage::delete($post->cover_img);
+            }
             $cover = $request->file('cover_img')->store('posts/covers');
         }
 
