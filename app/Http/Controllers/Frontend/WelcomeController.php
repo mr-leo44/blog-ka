@@ -12,7 +12,7 @@ class WelcomeController extends Controller
 {
     public function welcome()
     {
-        $posts = Article::where('is_published', 1)->latest()->paginate(5);
+        $posts = Article::where('is_published', 1)->latest()->paginate(6);
         return view('welcome', compact('posts'));
     }
 
@@ -30,7 +30,7 @@ class WelcomeController extends Controller
 
     public function getPostsByCategory(Category $category)
     {
-        $posts = Article::where('category_id', $category->id)->latest()->paginate(5);
+        $posts = Article::where('category_id', $category->id)->latest()->paginate(6);
         return view('frontend.category-posts', compact('posts', 'category'));
     }
 
@@ -42,7 +42,7 @@ class WelcomeController extends Controller
 
     public function getPostsByAuthor(User $user)
     {
-        $posts = Article::where('user_id', $user->id)->latest()->paginate(5);
+        $posts = Article::where('user_id', $user->id)->latest()->paginate(6);
         return view('frontend.author-posts', compact('posts', 'user'));
     }
 }

@@ -1,7 +1,5 @@
 <x-frontend-layout>
-    {{-- @php
-        \Carbon\Carbon::setLocale('fr');
-    @endphp --}}
+
     <div class="grid grid-cols-1 gap-3 px-3 lg:grid-cols-3">
         @if ($posts->count() > 0)
             @foreach ($posts as $key => $post)
@@ -65,5 +63,8 @@
         @else
             <p class="col-span-full text-center">Aucun post publié.</p>
         @endif
+    </div>
+    <div class="my-3 px-6">
+        {{ $posts->links() }}
     </div>
 </x-frontend-layout>
