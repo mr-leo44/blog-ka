@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\user;
+use App\Models\User;
 
 Route::get('admin', function(){
     if(User::count() === 0) {
