@@ -31,11 +31,11 @@
                                         value="{{ $post->title }}" />
                                 </div>
                                 <div class="mt-2">
-                                    <label for="content"
+                                    <label for="editor"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contenu</label>
-                                    <textarea name="content" id="content" cols="100" rows="10"
+                                    <textarea name="content" id="editor" cols="100" rows="10"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                        placeholder="lorem ipsum" required>{!! html_entity_decode($post->content) !!}</textarea>
+                                        placeholder="lorem ipsum" required>{!! $post->content !!}</textarea>
                                 </div>
                                 <div class="mt-2">
                                     <label for="cover_img"
@@ -75,8 +75,8 @@
         </div>
 
     </div>
-
-    <script>
+    <x-head.tinymce-config/>
+    {{-- <script>
         ClassicEditor
             .create(document.querySelector('#content'), {
                 toolbar: {
@@ -214,5 +214,5 @@
             .catch(error => {
                 console.error(error);
             });
-    </script>
+    </script> --}}
 </x-app-layout>

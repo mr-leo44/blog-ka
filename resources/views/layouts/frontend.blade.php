@@ -12,6 +12,7 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-slate-800 dark:text-white/50">
+    
     @include('frontend.partials.navigation')
     <div class="py-6 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4">

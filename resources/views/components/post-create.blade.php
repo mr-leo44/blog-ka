@@ -42,9 +42,9 @@
                                 placeholder="Challenges" required />
                         </div>
                         <div class="mt-2">
-                            <label for="content"
+                            <label for="editor"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contenu</label>
-                            <textarea id="content" name="content"
+                            <textarea id="editor" name="content"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-b-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-3 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                             </textarea>
                         </div>
@@ -82,8 +82,8 @@
         </div>
     </div>
 </div>
-
-<script>
+<x-head.tinymce-config/>
+{{-- <script>
     ClassicEditor
         .create(document.querySelector('#content'), {
             toolbar: {
@@ -221,4 +221,4 @@
         .catch(error => {
             console.error(error);
         });
-</script>
+</script> --}}

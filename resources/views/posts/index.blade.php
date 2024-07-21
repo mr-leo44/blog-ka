@@ -152,12 +152,12 @@
                     </tbody>
                 </table>
                 <div class="my-3 px-6">
-                    {{ $posts->links() }}
+                    {{ $posts->links() }}.
                 </div>
             </div>
         </div>
     </div>
     <x-post-create :categories="$categories" />
     <x-delete :message="__('Voulez-vous vraiment supprimer cet Article ?')" />
-
+    
 </x-app-layout>
