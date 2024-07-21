@@ -10,12 +10,35 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use App\Models\user;
 
+Route::get('admin', function(){
+    if(User::count() === 0) {
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@mksksm.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+        ]);
+        if ($user){
+
+        session()->regenerate();
+
+        return redirect()->intended(route('dashboard', absolute: false));
+        }
+    } else {
+        return redirect()->route('login');
+    }
+
+});
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+    // Route::get('register', [RegisteredUserController::class, 'create'])
+    //             ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    // Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
