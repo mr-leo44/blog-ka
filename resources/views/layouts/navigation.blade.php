@@ -22,21 +22,21 @@
                 class="font-medium text-sm lg:text-md flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li class="list-none">
                     <a href="{{ route('dashboard') }}"
-                        class="{{ request()->routeIs('dashboard') ? 'text-white dark:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                        class="{{ request()->routeIs('dashboard') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                         aria-current="page">Dashboard</a>
                 </li>
                 <li class="list-none">
                     <a href="{{ route('categories.index') }}"
-                        class="{{ request()->routeIs('categories.*') ? 'text-white dark:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                        class="{{ request()->routeIs('categories.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                         aria-current="page">Catégories</a>
                 </li>
                 <li class="list-none">
                     <a href="{{ route('posts.index') }}"
-                        class="{{ request()->routeIs('posts.*') ? 'text-white dark:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Articles</a>
+                        class="{{ request()->routeIs('posts.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Articles</a>
                 </li>
                 <li class="list-none">
                     <a href="{{ route('authors.index') }}"
-                        class="{{ request()->routeIs('authors.*') ? 'text-white dark:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Auteurs</a>
+                        class="{{ request()->routeIs('authors.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Auteurs</a>
                 </li>
                 <li class="list-none">
                     <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
@@ -60,7 +60,7 @@
                             <div class="truncate">{{ Auth::user()->email }}</div>
                         </div>
                         <ul aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton" class="list-none">
-                            <li>
+                            <li class="list-none">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profil') }}
                                 </x-dropdown-link>
