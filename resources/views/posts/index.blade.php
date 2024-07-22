@@ -1,4 +1,4 @@
-@props(['posts' => [], 'categories'])
+@props(['categories'])
 <x-app-layout>
 
     <x-slot name="header">
@@ -159,5 +159,5 @@
     </div>
     <x-post-create :categories="$categories" />
     <x-delete :message="__('Voulez-vous vraiment supprimer cet Article ?')" />
-    
+
 </x-app-layout>
