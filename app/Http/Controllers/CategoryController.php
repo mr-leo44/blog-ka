@@ -34,12 +34,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->file('cover_img')) {
-            $cover = $request->file('cover_img')->store('categories/covers');
-        }
         Category::create([
             'name' => $request->name,
-            'cover_img' => $cover ?? null
         ]);
 
         return redirect()->route('categories.index')->with('success', 'La catégorie a été créée avec succès');
@@ -52,7 +48,7 @@ class CategoryController extends Controller
     {
         $posts = Article::where('category_id', '=', $category->id)->paginate(10);
         $categories = Category::all();
-        return view('categories.show', compact('posts', 'category', 'categories')); 
+        return view('categories.show', compact('posts', 'category', 'categories'));
     }
 
     /**
@@ -68,15 +64,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        dd($category);
-        if ($request->hasFile('cover_img')) {
-            Storage::delete($category->cover_img);
-            $cover = $request->file('cover_img')->store('categories/covers');
-        }
-
         $category->update([
             'name' => $request->name,
-            'cover_img' => $cover ?? $category->cover_img
         ]);
         return redirect()->route('categories.index')->with('success', 'La catégorie a été mise à jour avec succès');
     }
@@ -86,9 +75,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if ($category->cover_img) {
-            Storage::delete($category->cover_img);
-        }
         $category->delete();
         return redirect()->route('categories.index')->with("success", "suppression de la catégorie reussie");
     }

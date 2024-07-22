@@ -40,17 +40,6 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="Challenges" required />
                         </div>
-                        <div class="mt-2">
-                            <label for="cover_img"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image de
-                                couverture</label>
-                            <input
-                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                aria-describedby="cover_img_help" name="cover_img" id="cover_img" type="file">
-                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                                JPG, JPEG, PNG (max 500Kb)
-                            </div>
-                        </div>
                         <div class="flex justify-start mt-2 mb-4">
                             <button type="submit"
                                 class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
