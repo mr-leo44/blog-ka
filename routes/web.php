@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/posts/{post}/show', [WelcomeController::class, 'getPost'])->name('getPost');
 
 Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
-Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index')->middleware(['auth', 'verified']);
+Route::resource('/authors', AuthorController::class)->middleware(['auth', 'verified']);
 Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
 
 Route::resource('/tags', TagController::class)->middleware(['auth', 'verified']);
