@@ -35,9 +35,8 @@ Route::get('/posts/{post}/show', [WelcomeController::class, 'getPost'])->name('g
 Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/authors', AuthorController::class);
-    Route::get('/authors/{user}/activate', [AuthorController::class, 'activate'])->name('authors.activate');
-    Route::get('/authors/{user}/deactivate', [AuthorController::class, 'deactivate'])->name('authors.deactivate');
-    Route::post('/authors/{user}/password-reset', [AuthorController::class, 'passwordReset'])->name('authors.passwordReset');
+    Route::put('/authors/{user}/activation', [AuthorController::class, 'activation'])->name('authors.activation');
+    Route::put('/authors/{user}/password-reset', [AuthorController::class, 'passwordReset'])->name('authors.passwordReset');
 });
 Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
 

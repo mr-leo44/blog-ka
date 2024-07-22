@@ -79,16 +79,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, User $author)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        ]);
-
-        $author->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
-        return redirect()->route('authors.index')->with('success', 'L\'auteur a été mis à jour avec succès');
+        //
     }
 
     /**
@@ -96,18 +87,20 @@ class AuthorController extends Controller
      */
     public function destroy(User $author)
     {
-        $author->delete();
-        return redirect()->route('authors.index')->with("success", "Suppression de l\'auteur reussie");
+        //
     }
-    public function activate(User $author)
+
+    public function activation(Request $request, User $author)
     {
-        return 'activated';
-        // redirect()->route('authors.index')->with("success", "Suppression de l\'auteur reussie");
-    }
-    public function deactivate(User $author)
-    {
-        return 'deactivated';
-        // redirect()->route('authors.index')->with("success", "Suppression de l\'auteur reussie");
+        $profile = Profile::where('user_id', $request->id)->first();
+        $profile->update([
+            'is_activated' => (int)($request->is_activated)
+        ]);
+        if($profile->is_activated === 1){
+            return back()->with('success', 'Compte activé avec succès');
+        } else {
+            return back()->with('success', 'Compte désactivé avec succès');
+        }
     }
 
     public function passwordReset(User $author)

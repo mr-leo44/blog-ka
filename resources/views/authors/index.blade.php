@@ -93,7 +93,8 @@
                                                 </button>
                                             </form>
                                         </div>
-                                        <button type="button"                                                       data-modal-target="change-role" data-modal-toggle="change-role"
+                                        <button type="button" title="Changer rôle" data-modal-target="change-role"
+                                            data-modal-toggle="change-role"
                                             class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 py-2 px-3 rounded me-3 text-white dark:text-white">
                                             <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -103,41 +104,42 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </button>
-                                        {{-- @if ($author === 0)
-                                            <a href="{{ route('posts.publish', $post) }}" title="Publier l'article"
-                                                class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 py-2 px-3 rounded text-white dark:text-white">
-                                                <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z" />
-                                                </svg>
-                                            </a>
+                                        @if ($author->profile->is_activated === 0)
+                                            <form action="{{ route('authors.activation', $author) }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="id" value="{{ $author->id }}">
+                                                <input type="hidden" name="is_activated" value="1">
+                                                <button type="submit" title="Activer le compte"
+                                                    class="font-medium cursor-pointer bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 py-2 px-3 rounded text-white dark:text-white">
+                                                    <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
                                         @else
-                                            <a href="{{ route('posts.unpublish', $post) }}" title="Desactiver l'article"
-                                                class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
-                                                <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-width="2"
-                                                        d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                </svg>
-                                            </a>
-                                        @endif --}}
-                                        <a href="{{ route('authors.destroy', $author) }}"
-                                            data-modal-target="delete-modal" data-modal-toggle="delete-modal"
-                                            onclick="supprimer(event)"
-                                            class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
-                                            <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2"
-                                                    d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
-                                            </svg>
-                                        </a>
+                                            <form action="{{ route('authors.activation', $author) }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="id" value="{{ $author->id }}">
+                                                <input type="hidden" name="is_activated" value="0">
+                                                <button type="submit"
+                                                    title="Désactiver le compte"
+                                                    class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
+                                                    <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-width="2"
+                                                            d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

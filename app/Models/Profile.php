@@ -12,9 +12,10 @@ class Profile extends Model
 
     protected $fillable=[
         'role',
+        'is_activated',
         'user_id',
     ];
-    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
