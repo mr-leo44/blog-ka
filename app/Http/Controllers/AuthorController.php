@@ -103,9 +103,12 @@ class AuthorController extends Controller
         }
     }
 
-    public function passwordReset(User $author)
+    public function passwordReset(Request $request, User $author)
     {
-        return 'reseted';
-        // redirect()->route('authors.index')->with("success", "Suppression de l\'auteur reussie");
+        $author = User::find($request->id);
+        $author->update([
+            'password' => Hash::make('12345678'),
+        ]);
+        return back()->with('success', 'Mot de passe réinitialisé avec succès');
     }
 }

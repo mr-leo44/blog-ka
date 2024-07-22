@@ -81,6 +81,8 @@
                                         <div>
                                             <form action="{{ route('authors.passwordReset', $author) }}" method="post">
                                                 @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="id" value="{{ $author->id }}">
                                                 <button type="submit" title="Réinitialiser mot de passe"
                                                     class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 py-2 px-3 rounded me-3 text-white dark:text-white">
                                                     <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
@@ -158,6 +160,6 @@
         </div>
     </div>
     <x-author-create />
-    <x-delete :message="__('Voulez-vous vraiment supprimer cet auteur ?')" />
+    <x-change-role :message="__('Voulez-vous vraiment supprimer cet auteur ?')" />
 
 </x-app-layout>
