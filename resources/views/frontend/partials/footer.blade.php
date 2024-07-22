@@ -8,7 +8,7 @@
                     Archikin</span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-xs md:text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
-                <li>
+                <li class="list-none">
                     <a href="tel:+243899939371" class="hover:underline md:me-6">Nous appeler</a>
                 </li>
             </ul>
