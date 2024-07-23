@@ -25,7 +25,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('username', $request->username)->first();
         if($user->profile->is_activated){
             $request->authenticate();
 
@@ -35,7 +35,6 @@ class AuthenticatedSessionController extends Controller
         } else {
             return back()->with('error', 'Ce compte n\'est pas activé. Pière de contacter le technicien');
         }
-        // dd($user->profile->is_activated);
     }
 
     /**

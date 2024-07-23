@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 Route::get('admin', function(){
     if(User::count() === 0) {
         $user = User::create([
+            'username' => 'admin-2024',
             'name' => 'Admin',
             'email' => 'admin@mksksm.com',
             'email_verified_at' => now(),
@@ -29,11 +30,12 @@ Route::get('admin', function(){
                 'role' => 'admin',
                 'user_id' => $user->id,
             ]);
+
+            session()->regenerate();
+
+            return redirect()->intended(route('dashboard', absolute: false));
         }
 
-        session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
     } else {
         return redirect()->route('login');
     }

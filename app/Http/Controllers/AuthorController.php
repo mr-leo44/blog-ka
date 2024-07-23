@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Profile;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
@@ -41,8 +42,11 @@ class AuthorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
         ]);
+        $randomNumber = rand(1000, 9999);
 
         $user = User::create([
+
+            'username' => Str::slug($request->name. $randomNumber),
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make('12345678'),

@@ -55,6 +55,9 @@
                                 Nom
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Username
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Email
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -73,6 +76,9 @@
                                     </th>
                                     <td class="px-6 py-3">
                                         {{ $author->name }}
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        {{ $author->username }}
                                     </td>
                                     <td class="px-6 py-3">
                                         {{ $author->email }}
