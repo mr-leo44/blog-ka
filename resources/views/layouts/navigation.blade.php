@@ -1,6 +1,9 @@
 <nav class="bg-emerald-700 dark:bg-gray-900 shadow">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a @profile('author') href="{{ route('posts.index') }}" @endprofile
+            @profile('admin') href="{{ route('dashboard') }}" @endprofile
+            @profile('manager') href="{{ route('dashboard') }}" @endprofile
+            class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/logo.png') }}" class="self-center text-white h-8" alt="Logo" />
             <span
                 class="self-center text-md md:text-xl font-semibold md:font-semibold whitespace-nowrap text-white dark:hover:text-emerald-400">Mukasa-Kasima
@@ -20,24 +23,30 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul
                 class="font-medium text-sm lg:text-md flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li class="list-none">
-                    <a href="{{ route('dashboard') }}"
-                        class="{{ request()->routeIs('dashboard') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                        aria-current="page">Dashboard</a>
-                </li>
-                <li class="list-none">
-                    <a href="{{ route('categories.index') }}"
-                        class="{{ request()->routeIs('categories.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                        aria-current="page">Catégories</a>
-                </li>
-                <li class="list-none">
-                    <a href="{{ route('posts.index') }}"
-                        class="{{ request()->routeIs('posts.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Articles</a>
-                </li>
-                <li class="list-none">
-                    <a href="{{ route('authors.index') }}"
-                        class="{{ request()->routeIs('authors.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Auteurs</a>
-                </li>
+                @profile('dash')
+                    <li class="list-none">
+                        <a href="{{ route('dashboard') }}"
+                            class="{{ request()->routeIs('dashboard') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            aria-current="page">Dashboard</a>
+                    </li>
+                @endprofile
+                @profile('admin')
+                    <li class="list-none">
+                        <a href="{{ route('authors.index') }}"
+                            class="{{ request()->routeIs('authors.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Auteurs</a>
+                    </li>
+                    <li class="list-none">
+                        <a href="{{ route('categories.index') }}"
+                            class="{{ request()->routeIs('categories.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            aria-current="page">Catégories</a>
+                    </li>
+                @endprofile
+                @profile('author')
+                    <li class="list-none">
+                        <a href="{{ route('posts.index') }}"
+                            class="{{ request()->routeIs('posts.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Articles</a>
+                    </li>
+                @endprofile
                 <li class="list-none">
                     <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
                         class="flex items-center px-3 md:p-0 font-medium text-md py-2 pe-1 text-gray-300 hover:text-white rounded-full transition ease-in-out md:border-0 dark:hover:text-emerald-500 md:me-0 dark:text-white"
