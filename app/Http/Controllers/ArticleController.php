@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,8 @@ class ArticleController extends Controller
             'content' => $request->content,
             'category_id' => $request->category_id,
             'user_id' => Auth::user()->id,
-            'cover_img' => $cover ?? null
+            'cover_img' => $cover ?? null,
+            'read_time' => (int)ceil((Str::wordCount($request->content) / 265) * 60)
         ]);
 
         return redirect()->route('posts.index')->with('success', 'Le post a été créé avec succès');
@@ -85,8 +87,7 @@ class ArticleController extends Controller
      */
         public function edit(Article $post)
     {
-        $categories = Category::all();
-        return view('posts.edit', compact('post', 'categories'));
+        //
     }
 
     /**
@@ -105,7 +106,8 @@ class ArticleController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'category_id' => $request->category_id,
-            'cover_img' => $cover ?? $post->cover_img
+            'cover_img' => $cover ?? $post->cover_img,
+            'read_time' => (int)ceil((Str::wordCount($request->content) / 265) * 60)
         ]);
         return redirect()->route('posts.index')->with('success', 'L\'article a été mis à jour avec succès');
     }
