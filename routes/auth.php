@@ -30,12 +30,8 @@ Route::get('admin', function(){
                 'role' => 'admin',
                 'user_id' => $user->id,
             ]);
-
-            session()->regenerate();
-
-            return redirect()->intended(route('dashboard', absolute: false));
         }
-
+        return redirect()->intended(route('dashboard', absolute: false));
     } else {
         return redirect()->route('login');
     }
