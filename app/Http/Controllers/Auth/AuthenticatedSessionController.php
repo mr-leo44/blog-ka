@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Enums\RoleEnum;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,12 @@ class AuthenticatedSessionController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard', absolute: false));
+            if($user->profile->role->value === RoleEnum::AUTHOR->value) {
+                return redirect()->intended(route('posts.index', absolute: false));
+            } else {
+                return redirect()->intended(route('dashboard', absolute: false));
+            }
+
         } else {
             return back()->with('error', 'Ce compte n\'est pas activé. Pière de contacter le technicien');
         }
