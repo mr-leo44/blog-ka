@@ -37,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/authors', AuthorController::class);
     Route::put('/authors/{user}/activation', [AuthorController::class, 'activation'])->name('authors.activation');
     Route::put('/authors/{user}/password-reset', [AuthorController::class, 'passwordReset'])->name('authors.passwordReset');
+    Route::put('/authors/{user}/change-role', [AuthorController::class, 'changeRole'])->name('authors.changeRole');
 });
 Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
 
