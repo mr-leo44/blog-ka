@@ -33,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
                 $profile = true;
             } elseif ($environment === 'dash' && Auth::user()->profile->role->value !== RoleEnum::AUTHOR->value) {
                 $profile = true;
+            } elseif ($environment === 'no-dash' && Auth::user()->profile->role->value !== RoleEnum::ADMIN->value) {
+                $profile = true;
             }
             else {
                 $profile = false;

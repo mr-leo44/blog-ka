@@ -1,8 +1,8 @@
 <nav class="bg-emerald-700 dark:bg-gray-900 shadow">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a @profile('author') href="{{ route('posts.index') }}" @endprofile
-            @profile('admin') href="{{ route('dashboard') }}" @endprofile
-            @profile('manager') href="{{ route('dashboard') }}" @endprofile
+            @profile('dash') href="{{ route('dashboard') }}" @endprofile
+            {{-- @profile('manager') href="{{ route('dashboard') }}" @endprofile --}}
             class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/logo.png') }}" class="self-center text-white h-8" alt="Logo" />
             <span
@@ -41,7 +41,7 @@
                             aria-current="page">Catégories</a>
                     </li>
                 @endprofile
-                @profile('author')
+                @profile('no-dash')
                     <li class="list-none">
                         <a href="{{ route('posts.index') }}"
                             class="{{ request()->routeIs('posts.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Articles</a>
