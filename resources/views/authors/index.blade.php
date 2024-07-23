@@ -157,10 +157,11 @@
                                         @endif
                                     </td>
                                 </tr>
+                                <x-change-role :author="$author" />
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="5" class="text-center px-6 py-4">{{ __('Aucun auteur trouvé') }}
+                                <td colspan="6" class="text-center px-6 py-4">{{ __('Aucun auteur trouvé') }}
                                 </td>
                             </tr>
                         @endif
@@ -173,6 +174,5 @@
         </div>
     </div>
     <x-author-create />
-    <x-change-role :author="$author" />
 
 </x-app-layout>
