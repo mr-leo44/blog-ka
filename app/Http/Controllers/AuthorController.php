@@ -115,4 +115,14 @@ class AuthorController extends Controller
         ]);
         return back()->with('success', 'Mot de passe réinitialisé avec succès');
     }
+
+    public function changeRole(Request $request, User $author)
+    {
+        $author = User::find($request->id);
+        $profile = Profile::where('user_id', $author->id)->first();
+        $profile->update([
+            'role' => $request->role,
+        ]);
+        return back()->with('success', 'Rôle attribué avec succès');
+    }
 }

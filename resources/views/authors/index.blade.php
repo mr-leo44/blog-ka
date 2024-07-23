@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
             @if (session('success'))
                 <div id="success-message"
                     class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
@@ -61,6 +61,9 @@
                                 Email
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Statut
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
@@ -82,6 +85,10 @@
                                     </td>
                                     <td class="px-6 py-3">
                                         {{ $author->email }}
+                                    </td>
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        {{ $author->profile->role->value }}
                                     </td>
                                     <td class="px-6 py-3 flex justify-end">
                                         <div>
@@ -166,6 +173,6 @@
         </div>
     </div>
     <x-author-create />
-    <x-change-role :message="__('Voulez-vous vraiment supprimer cet auteur ?')" />
+    <x-change-role :author="$author" />
 
 </x-app-layout>
