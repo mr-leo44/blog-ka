@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\View\Component;
+use Illuminate\Database\Eloquent\Builder;
 
 class FrontendLayout extends Component
 {
@@ -15,7 +16,9 @@ class FrontendLayout extends Component
     public function render(): View
     {
         $categories = Category::all();
-        $authors = User::all();
+        $authors = User::whereHas('profile', function(Builder $query){
+            $query->whereNot('role', 'admin');
+        })->get();
         return view('layouts.frontend', compact('categories', 'authors'));
     }
 }

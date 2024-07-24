@@ -20,7 +20,7 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = User::whereHas('profile', function(Builder $query) {
-            $query->where('role', '!=', 'admin');
+            $query->whereNot('role', 'admin');
         })->latest()->paginate(10);
         return view('authors.index', compact('authors'));
     }
