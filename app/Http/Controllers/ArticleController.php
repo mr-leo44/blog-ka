@@ -87,7 +87,8 @@ class ArticleController extends Controller
      */
         public function edit(Article $post)
     {
-        //
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**
