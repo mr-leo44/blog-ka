@@ -1,3 +1,20 @@
+<style>
+    ol {
+        list-style-type: decimal !important;
+        padding-left: 2rem !important;
+    }
+
+    ul {
+        list-style-type: disc !important;
+        padding-left: 2rem !important;
+    }
+
+    blockquote {
+        border-left: 2px solid #ccc;
+        margin-left: 1.5rem;
+        padding-left: 1rem;
+    }
+</style>
 <x-app-layout>
     <div class="py-14">
 
@@ -37,8 +54,8 @@
                             clip-rule="evenodd" />
                     </svg>
                 </a>
-                <a href="{{ route('posts.edit', $post) }}" title="Editer l'article"
-                    class="font-medium cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded mx-3 text-white dark:text-white">
+                <a href="{{ route('posts.edit', $post) }}"
+                    class="font-medium bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 py-2 px-3 rounded text-white dark:text-white">
                     <svg class="w-5 h-5 text-white dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -75,6 +92,8 @@
                         </svg>
                     </a>
                 @endprofile
+
+
             </div>
             <div
                 class="mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -87,7 +106,7 @@
                             {{ $post->title }}
                         </h5>
                         <p class="mb-3">
-                            <span class="font-normal !text-gray-700 !dark:text-white">{!! $post->content !!}</span>
+                            <span class="font-normal text-gray-700 dark:text-white">{!! $post->content !!}</span>
                         </p>
                     </div>
                 </div>
