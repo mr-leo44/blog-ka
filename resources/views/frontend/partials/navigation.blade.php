@@ -9,9 +9,14 @@
         <div class="flex items-center justify-center space-x-6 rtl:space-x-reverse">
             <a href="tel:+243899939371" class="hidden md:block text-xs md:text-sm text-white hover:underline">(+243)
                 899-939-371</a>
-            @if (Auth::user())
-                <a href="{{route('dashboard') }}" class="text-sm text-gray-900 dark:text-white hover:underline">Dashboard</a>
-            @endif
+            @profile('author')
+                <a href="{{ route('posts.index') }}"
+                    class="text-sm text-gray-900 dark:text-white hover:underline">Articles</a>
+            @endprofile
+            @profile('dash')
+                <a href="{{ route('dashboard') }}"
+                    class="text-sm text-gray-900 dark:text-white hover:underline">Dashboard</a>
+            @endprofile
         </div>
     </div>
 </nav>

@@ -1,8 +1,7 @@
 <nav class="bg-emerald-700 dark:bg-gray-900 shadow">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a @profile('author') href="{{ route('posts.index') }}" @endprofile
-            @profile('dash') href="{{ route('dashboard') }}" @endprofile
-            {{-- @profile('manager') href="{{ route('dashboard') }}" @endprofile --}}
+            @profile('dash') href="{{ route('dashboard') }}" @endprofile {{-- @profile('manager') href="{{ route('dashboard') }}" @endprofile --}}
             class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/logo.png') }}" class="self-center text-white h-8" alt="Logo" />
             <span
@@ -68,13 +67,9 @@
                         <div class="px-4 py-2 text-gray-700 hover:text-gray-900 dark:hover:text-white dark:text-white">
                             <div class="truncate">{{ Auth::user()->email }}</div>
                         </div>
-                        <ul aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton" class="list-none">
-                            <li class="list-none">
-                                <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Profil') }}
-                                </x-dropdown-link>
-                            </li>
-                        </ul>
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profil') }}
+                        </x-dropdown-link>
                         <div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
