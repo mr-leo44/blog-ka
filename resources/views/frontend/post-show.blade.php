@@ -62,7 +62,7 @@ blockquote {
 
         <div class="my-10">
             <h5 class="mb-2 border-b-2"><span
-                    class="text-sm font-medium tracking-tight text-gray-900 dark:text-white bg-emerald-700 px-2 py-1">Voir
+                    class="text-sm font-medium tracking-tight text-white bg-emerald-700 px-2 py-1">Voir
                     aussi</span></h5>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-2 my-5">
                 @if ($recent_posts->count() > 0)
@@ -84,7 +84,7 @@ blockquote {
                             </div>
                             <div class="w-full px-3">
                                 <a href="{{ route('getPost', $recent) }}">
-                                    <h5 class="text-sm font-medium tracking-tight text-gray-900 dark:text-white">
+                                    <h5 class="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
                                         {{ $recent->title }}</h5>
                                 </a>
                                 <div class="flex justify-between gap-1 items-center mt-auto">

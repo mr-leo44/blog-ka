@@ -1,6 +1,6 @@
 <div class="mx-3 px-2 my-8 md:my-0">
     <div class="mb-4">
-        <h5 class="mb-2 border-b-2"><span class="text-xs md:text-sm font-medium tracking-tight text-gray-900 dark:text-white bg-emerald-700 px-2 py-1">Catégories</span></h5>
+        <h5 class="mb-2 border-b-2"><span class="text-xs md:text-sm font-medium tracking-tight text-white bg-emerald-700 px-2 py-1">Catégories</span></h5>
         <ul class="max-w-md ms-2 space-y-2 text-gray-500 list-disc list-inside dark:text-gray-400">
             @if ($categories->count() > 0)
                 @foreach ($categories as $category)
@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="mt-6">
-        <h5 class="mb-2 border-b-2"><span class="text-xs md:text-sm font-medium tracking-tight text-gray-900 dark:text-white bg-emerald-700 px-2 py-1">Auteurs</span></h5>
+        <h5 class="mb-2 border-b-2"><span class="text-xs md:text-sm font-medium tracking-tight text-white bg-emerald-700 px-2 py-1">Auteurs</span></h5>
         <ul class="max-w-md ms-2 space-y-2 text-gray-500 list-disc list-inside dark:text-gray-400">
             @if ($authors->count() > 0)
                 @foreach ($authors as $user)

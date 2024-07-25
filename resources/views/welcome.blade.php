@@ -26,7 +26,7 @@
                         </div>
                         <div class="my-2 px-3">
                             <a href="{{ route('getPost', $post) }}">
-                                <h5 class="text-md font-medium tracking-tight text-gray-900 dark:text-white">
+                                <h5 class="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
                                     {{ $post->title }}</h5>
                             </a>
                             <div class="flex justify-between gap-1 items-center bottom-0">

@@ -12,11 +12,11 @@
             @if (Auth::user() != null)
             @profile('author')
                 <a href="{{ route('posts.index') }}"
-                    class="text-sm text-gray-900 dark:text-white hover:underline">Articles</a>
+                    class="text-sm text-white hover:underline">Articles</a>
             @endprofile
             @profile('dash')
                 <a href="{{ route('dashboard') }}"
-                    class="text-sm dark:text-white hover:underline">Dashboard</a>
+                    class="text-sm text-white hover:underline">Dashboard</a>
             @endprofile
             @endif
         </div>
