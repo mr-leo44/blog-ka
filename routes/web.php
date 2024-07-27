@@ -21,7 +21,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/categories/all', [WelcomeController::class, 'getCategories'])->name('getCategories');
 Route::resource('/categories', CategoryController::class)->middleware(['auth', 'verified']);
 Route::get('/categories/{category}/posts', [WelcomeController::class, 'getPostsByCategory'])->name('categoryPosts');
 
@@ -32,7 +31,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 Route::get('/posts/{post}/show', [WelcomeController::class, 'getPost'])->name('getPost');
 
-Route::get('/authors/all', [WelcomeController::class, 'getAuthors'])->name('getAuthors');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/authors', AuthorController::class);
     Route::put('/authors/{user}/activation', [AuthorController::class, 'activation'])->name('authors.activation');

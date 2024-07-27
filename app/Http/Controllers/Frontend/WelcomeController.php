@@ -22,22 +22,10 @@ class WelcomeController extends Controller
         return view('frontend.post-show', compact('post', 'recent_posts'));
     }
 
-    public function getCategories()
-    {
-        $categories = Category::latest()->paginate(10);
-        return view('frontend.categories', compact('categories'));
-    }
-
     public function getPostsByCategory(Category $category)
     {
         $posts = Article::where('category_id', $category->id)->latest()->paginate(6);
         return view('frontend.category-posts', compact('posts', 'category'));
-    }
-
-    public function getAuthors()
-    {
-        $authors = User::latest()->paginate(10);
-        return view('frontend.authors', compact('authors'));
     }
 
     public function getPostsByAuthor(User $user)
