@@ -1,21 +1,19 @@
 <style>
-ol {
-    list-style-type: decimal !important;
-    padding-left: 2rem !important;
-}
+    ol {
+        list-style-type: decimal !important;
+        padding-left: 2rem !important;
+    }
 
-ul
- {
-     list-style-type: disc !important;
-     padding-left: 2rem !important;
- }
+    ul {
+        list-style-type: disc !important;
+        padding-left: 2rem !important;
+    }
 
-blockquote {
-    border-left: 2px solid #ccc;
-    margin-left: 1.5rem;
-    padding-left: 1rem;
-}
-
+    blockquote {
+        border-left: 2px solid #ccc;
+        margin-left: 1.5rem;
+        padding-left: 1rem;
+    }
 </style>
 <x-frontend-layout>
     @php
@@ -61,11 +59,11 @@ blockquote {
         </div>
 
         <div class="my-10">
-            <h5 class="mb-2 border-b-2"><span
-                    class="text-sm font-medium tracking-tight text-white bg-emerald-700 px-2 py-1">Voir
-                    aussi</span></h5>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-2 my-5">
                 @if ($recent_posts->count() > 0)
+                    <h5 class="mb-2 border-b-2"><span
+                            class="text-sm font-medium tracking-tight text-white bg-emerald-700 px-2 py-1">Voir
+                            aussi</span></h5>
                     @foreach ($recent_posts as $recent)
                         <div
                             class="bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 inline-flex md:flex-col justify-between items-center">
@@ -78,7 +76,7 @@ blockquote {
                                 @else
                                     <a href="{{ route('getPost', $recent) }}">
                                         <img src="{{ asset('images/cover.jpg') }}" alt="Image par defaut"
-                                            class="object-cover h-[5rem] md:h-auto max-w-full">
+                                            class="object-cover w-full h-[5rem] md:h-auto max-w-full">
                                     </a>
                                 @endif
                             </div>

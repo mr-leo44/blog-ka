@@ -10,7 +10,6 @@
 
     <title>{{ config('app.name', 'Mukasa-Kasima Archikin') }}</title>
     <!-- Scripts -->
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
