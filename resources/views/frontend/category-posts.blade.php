@@ -11,7 +11,7 @@
                         <div class="relative">
                             @if ($post->cover_img)
                                 <a href="{{ route('getPost', $post) }}">
-                                    <img class="object-cover w-full h-auto max-w-full"
+                                    <img class="object-cover h-auto max-w-full"
                                         src="{{ asset("storage/$post->cover_img") }}" alt="" />
                                 </a>
                             @else
