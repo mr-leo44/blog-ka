@@ -1,7 +1,7 @@
 <nav class="bg-emerald-700 dark:bg-gray-900 shadow">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a @profile('author') href="{{ route('posts.index') }}" @endprofile
-            @profile('dash') href="{{ route('dashboard') }}" @endprofile {{-- @profile('manager') href="{{ route('dashboard') }}" @endprofile --}}
+            @profile('dash') href="{{ route('dashboard') }}" @endprofile
             class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/logo.png') }}" class="self-center text-white h-8" alt="Logo" />
             <span
