@@ -82,6 +82,7 @@
                             </svg>
                         </a>
                     @endif
+                @endprofile
                     <a href="{{ route('posts.destroy', $post) }}" data-modal-target="delete-modal"
                         data-modal-toggle="delete-modal" onclick="supprimer(event)" title="Supprimer l'article"
                         class="font-medium cursor-pointer bg-red-600 hover:bg-red-700 dark:bg-red-700 py-2 px-3 rounded  text-white dark:text-white">
@@ -91,7 +92,6 @@
                                 d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                         </svg>
                     </a>
-                @endprofile
 
 
             </div>
