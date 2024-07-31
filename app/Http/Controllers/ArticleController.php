@@ -19,7 +19,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $posts = Article::with(['category', 'user'])->where('user_id', Auth::user()->id)->latest()->paginate(5);
+        if(Auth::user()->profile->role->value === 'admin') {
+            $posts = Article::with(['category', 'user'])->where('is_published', false)->latest()->paginate(5);
+        } else {
+            $posts = Article::with(['category', 'user'])->where('user_id', Auth::user()->id)->latest()->paginate(5);
+        }
         $categories = Category::all();
         return view('posts.index', compact('categories', 'posts'));
     }
