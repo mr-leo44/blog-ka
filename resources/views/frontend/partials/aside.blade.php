@@ -5,8 +5,10 @@
         </h5>
         @if ($categories->count() > 0)
             @foreach ($categories as $category)
-                <a href="{{ route('categoryPosts', $category) }}"
-                    class="bg-emerald-600 transition ease-in-out hover:bg-emerald-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-emerald-400">{{ $category->name }}</a>
+                <div class="inline-block my-1">
+                    <span><a href="{{ route('categoryPosts', $category) }}"
+                            class="bg-emerald-600 transition ease-in-out hover:bg-emerald-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-emerald-400">{{ $category->name }}</a></span>
+                </div>
             @endforeach
         @else
             <span>
@@ -20,8 +22,10 @@
         </h5>
         @if ($authors->count() > 0)
             @foreach ($authors as $user)
-                <a href="{{ route('authorPosts', $user) }}"
-                    class="bg-blue-600 transition ease-in-out hover:bg-blue-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-blue-400">{{ $user->name }}</a>
+                <div class="inline-block mt-1">
+                    <span><a href="{{ route('authorPosts', $user) }}"
+                            class="bg-blue-600 transition ease-in-out hover:bg-blue-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-blue-400">{{ $user->name }}</a></span>
+                </div>
             @endforeach
         @else
             <span>
