@@ -7,7 +7,7 @@
             @foreach ($categories as $category)
                 <div class="inline-block my-1">
                     <span><a href="{{ route('categoryPosts', $category) }}"
-                            class="bg-emerald-600 transition ease-in-out hover:bg-emerald-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-emerald-400">{{ $category->name }}</a></span>
+                            class="text-gray-800 transition ease-in-out hover:text-gray-900 dark:text-white dark:hover:text-white text-xs font-medium p-0.5">{{ $category->name }}</a></span>
                 </div>
             @endforeach
         @else
@@ -18,18 +18,18 @@
     </div>
     <div class="mt-6">
         <h5 class="mb-2 border-b-2"><span
-                class="text-xs md:text-sm font-medium tracking-tight text-white bg-gray-900 px-2 py-1">Auteurs</span>
+                class="text-xs md:text-sm font-medium tracking-tight text-white bg-gray-900 px-2 py-1">Hastags</span>
         </h5>
-        @if ($authors->count() > 0)
-            @foreach ($authors as $user)
+        @if ($tags->count() > 0)
+            @foreach ($tags as $tag)
                 <div class="inline-block mt-1">
-                    <span><a href="{{ route('authorPosts', $user) }}"
-                            class="bg-blue-600 transition ease-in-out hover:bg-blue-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-blue-400">{{ $user->name }}</a></span>
+                    <span><a href="{{ route('tagPosts', $tag) }}"
+                            class="transition ease-in-out text-gray-800 dark:text-white hover:text-gray-900 dark:hover:text-white text-xs font-medium p-0.5">#{{ $tag->name }}</a></span>
                 </div>
             @endforeach
         @else
             <span>
-                Aucun auteur
+                Aucun hastag
             </span>
         @endif
     </div>

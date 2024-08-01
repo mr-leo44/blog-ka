@@ -40,6 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor'])->name('authorPosts');
 
 Route::resource('/tags', TagController::class)->middleware(['auth', 'verified']);
+Route::get('/tags/{tag}/posts', [WelcomeController::class, 'getPostsByTag'])->name('tagPosts');
 
 
 require __DIR__ . '/auth.php';
