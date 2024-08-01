@@ -40,6 +40,11 @@
                             aria-current="page">Catégories</a>
                     </li>
                     <li class="list-none">
+                        <a href="{{ route('tags.index') }}"
+                            class="{{ request()->routeIs('tags.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            aria-current="page">Tags</a>
+                    </li>
+                    <li class="list-none">
                         <a href="{{ route('authors.index') }}"
                             class="{{ request()->routeIs('authors.*') ? 'text-white dark:text-emerald-500 dark:hover:text-emerald-500' : 'text-gray-300 dark:text-white' }} block py-2 px-3 rounded hover:text-white transition ease-in-out md:border-0 md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Auteurs</a>
                     </li>
