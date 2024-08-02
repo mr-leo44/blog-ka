@@ -1,21 +1,19 @@
 <style>
-ol {
-    list-style-type: decimal !important;
-    padding-left: 2rem !important;
-}
+    ol {
+        list-style-type: decimal !important;
+        padding-left: 2rem !important;
+    }
 
-ul
- {
-     list-style-type: disc !important;
-     padding-left: 2rem !important;
- }
+    ul {
+        list-style-type: disc !important;
+        padding-left: 2rem !important;
+    }
 
-blockquote {
-    border-left: 2px solid #ccc;
-    margin-left: 1.5rem;
-    padding-left: 1rem;
-}
-
+    blockquote {
+        border-left: 2px solid #ccc;
+        margin-left: 1.5rem;
+        padding-left: 1rem;
+    }
 </style>
 <x-frontend-layout>
     @php
@@ -58,6 +56,14 @@ blockquote {
                 class="flex items-center text-xs mt-6 md:text-sm text-gray-900 dark:text-white">
                 <span class="flex-1 whitespace-nowrap">{{ $post->user->name }}</span>
             </a>
+            @if ($post->tags)
+            <div class="my-4">
+                @foreach ($post->tags as $tag)
+                    <a href="{{ route('tagPosts', $tag) }}"
+                        class="bg-blue-500 transition ease-in-out hover:bg-blue-700 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-blue-400">#{{ $tag->name }}</a>
+                @endforeach
+            </div>
+            @endif
         </div>
 
         <div class="my-10">
