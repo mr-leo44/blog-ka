@@ -1,13 +1,12 @@
 import './bootstrap';
 import 'flowbite';
-// import "quill/dist/quill.core.css";
-// import "quill/dist/quill.snow.css";
+import 'tom-select/dist/css/tom-select.default.css';
 
+import TomSelect from 'tom-select';
 import jQuery from 'jquery';
-// import Quill from 'quill';
 import Alpine from 'alpinejs';
 
 window.$ = jQuery;
 window.Alpine = Alpine;
-// window.Quill = Quill
+window.TomSelect = TomSelect;
 Alpine.start();
