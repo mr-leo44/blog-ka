@@ -77,4 +77,12 @@ class TagController extends Controller
         $tag->delete();
         return redirect()->route('tags.index')->with("success", "suppression du Hastag reussie");
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('q', '');
+        $tags = Tag::where('name', 'LIKE', "%{$query}%")->get(['id', 'name as text']);
+
+        return response()->json($tags);
+    }
 }

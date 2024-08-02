@@ -41,6 +41,7 @@ Route::get('/authors/{user}/posts', [WelcomeController::class, 'getPostsByAuthor
 
 Route::resource('/tags', TagController::class)->middleware(['auth', 'verified']);
 Route::get('/tags/{tag}/posts', [WelcomeController::class, 'getPostsByTag'])->name('tagPosts');
+Route::get('/tags/search', [TagController::class, 'search'])->name('tags.search');
 
 
 require __DIR__ . '/auth.php';

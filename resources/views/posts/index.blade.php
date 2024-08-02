@@ -164,7 +164,7 @@
             </div>
         </div>
     </div>
-    <x-post-create :categories="$categories" />
+    <x-post-create :categories="$categories" :tags="$tags" />
     <x-delete :message="__('Voulez-vous vraiment supprimer cet Article ?')" />
 
 </x-app-layout>

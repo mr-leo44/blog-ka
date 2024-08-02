@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -25,7 +26,8 @@ class ArticleController extends Controller
             $posts = Article::with(['category', 'user'])->where('user_id', Auth::user()->id)->latest()->paginate(5);
         }
         $categories = Category::all();
-        return view('posts.index', compact('categories', 'posts'));
+        $tags = Tag::all();
+        return view('posts.index', compact('categories', 'posts', 'tags'));
     }
 
     /**
@@ -44,7 +46,7 @@ class ArticleController extends Controller
         if ($request->file('cover_img')) {
             $cover = $request->file('cover_img')->store('posts/covers');
         }
-        Article::create([
+        $post = Article::create([
             'title' => $request->title,
             'content' => $request->content,
             'category_id' => $request->category_id,
@@ -52,6 +54,14 @@ class ArticleController extends Controller
             'cover_img' => $cover ?? null,
             'read_time' => (int)ceil((Str::wordCount($request->content) / 265) * 60)
         ]);
+
+        if($post) {
+            $tags = collect($request->tags)->map(function($tag){
+                return Tag::firstOrCreate(['name' => $tag])->id;
+            });
+
+            $post->tags()->sync($tags);
+        }
 
         return redirect()->route('posts.index')->with('success', 'Le post a été créé avec succès');
     }
