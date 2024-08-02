@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
     <div class="py-12">
-        <div class="mx-auto overflow-y-auto overflow-x-hidden flex justify-center items-center max-w-7xl md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div
+            class="mx-auto overflow-y-auto overflow-x-hidden flex justify-center items-center max-w-7xl md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-2xl max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="p-4 md:p-5">
@@ -42,8 +43,9 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image de
                                         couverture</label>
                                     <input
-                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                aria-describedby="cover_img_help" name="cover_img" id="cover_img" type="file">
+                                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                        aria-describedby="cover_img_help" name="cover_img" id="cover_img"
+                                        type="file">
                                     <div class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="user_avatar_help">
                                         JPG, JPEG, PNG (max 500Kb)
                                     </div>
@@ -53,7 +55,7 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hastags</label>
                                     <select name="tags[]" id="tags" multiple
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                        required>
+                                        placeholder="Ajoutez hastag sans #" required>
                                         @foreach ($post->tags as $tag)
                                             <option value="{{ $tag->name }}" selected>{{ $tag->name }}</option>
                                         @endforeach
@@ -68,7 +70,8 @@
                                         <option value="" disabled>Selectionnez</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}"
-                                                {{ $category->id === $post->category_id ? 'selected' :'' }}>{{ $category->name }}
+                                                {{ $category->id === $post->category_id ? 'selected' : '' }}>
+                                                {{ $category->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -87,6 +90,6 @@
         </div>
 
     </div>
-    <x-head.tinymce-config/>
-    <x-head.tomjs-multiselect/>
+    <x-head.tinymce-config />
+    <x-head.tomjs-multiselect />
 </x-app-layout>
