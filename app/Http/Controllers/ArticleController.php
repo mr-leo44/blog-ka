@@ -124,6 +124,15 @@ class ArticleController extends Controller
             'cover_img' => $cover ?? $post->cover_img,
             'read_time' => (int)ceil((Str::wordCount($request->content) / 265) * 60)
         ]);
+
+        if($post) {
+            $tags = collect($request->tags)->map(function($tag){
+                return Tag::firstOrCreate(['name' => $tag])->id;
+            });
+
+            $post->tags()->sync($tags);
+        }
+        
         return redirect()->route('posts.index')->with('success', 'L\'article a été mis à jour avec succès');
     }
 
